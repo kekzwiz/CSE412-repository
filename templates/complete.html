@@ -11,9 +11,21 @@
         <div class="container">
             <img src="../static/hair.png" alt ="Logo" class="center"/>
             <h1>Form submitted!</h1>
-            <form action="/" method="POST">
-                <input type="submit" value="Homepage" class="btn" />
-            </form>
         </div>
+        <table class="table">
+            <tr class="table__header"> 
+                {% for header in headings %}
+                <th class="table__cell">{{ header }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+            <tr class="table__row">
+                {% for cell in row %}
+                <td class="table__cell">{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>
+

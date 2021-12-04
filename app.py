@@ -34,13 +34,61 @@ class Appointment(db.Model):
         self.time = time
         self.service = service
 
+class Schedules(db.Model):
+    __tablename__ = 'schedules'
+    cid = db.Column(db.Integer, db.ForeignKey(Client.cid))
+    apid = db.Column(db.Integer, db.ForeignKey(Appointment.apid))
+
+class Stylist(db.Model):
+    __tablename__ = 'stylist'
+    sid = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))
+    expertise = db.Column(db.String(50))
+
+class Scheduled(db.Model):
+    __tablename__ = 'scheduled'
+    sid = db.Column(db.Integer, db.ForeignKey(Stylist.sid))
+    apid = db.Column(db.Integer, db.ForeignKey(Appointment.apid))
+
+class Service(db.Model):
+    __tablename__ = 'service'
+    serid = db.Column(db.Integer, primary_key=True)
+    style = db.Column(db.String(20))
+
+class Offers(db.Model):
+    __tablename__ = 'offers'
+    sid = db.Column(db.Integer, db.ForeignKey(Stylist.sid))
+    serid = db.Column(db.Integer, db.ForeignKey(Service.serid))
+
+class Haircut(db.Model):
+    __tablename__ = 'haircut'
+    serid = db.Column(db.Integer, primary_key=True)
+    style = db.Column(db.String(20))
+
+class ColoringSession(db.Model):
+    __tablename__ = 'coloringsession'
+    serid = db.Column(db.Integer, primary_key=True)
+    materials = db.Column(db.PickleType(mutable=True))
+
 @app.route('/')
-def home():
-    return render_template('home.html')
+def index():
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
-def ret():
-    return render_template('home.html')
+def back():
+    return render_template('index.html')
+
+@app.route('/add', methods=['POST'])
+def add():
+    return render_template('add.html')
+
+@app.route('/update', methods=['POST'])
+def update():
+    return render_template('update.html')
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    return render_template('delete.html')
 
 @app.route('/complete', methods=['POST'])
 def complete():

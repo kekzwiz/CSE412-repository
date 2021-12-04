@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="../static/style.css" />
+        <title>Add, update, or delete appointment</title>
+    </head>
+    <body>
+        <div class="container">
+            <img src="../static/hair.png" alt ="Logo" class="center"/>
+            <form action="/add" method="POST">
+                <input type="submit" value="Add Appointment" class="btn" />
+            </form>
+            <form action="/update" method="POST">
+                <input type="submit" value="Update Appointment" class="btn" />
+            </form>
+            <form action="/delete" method="POST">
+                <input type="submit" value="Delete Appointment" class="btn" />
+            </form>
+        </div>
+    </body>
+</html>
