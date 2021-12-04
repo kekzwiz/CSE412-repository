@@ -39,6 +39,11 @@ class Schedules(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cid = db.Column(db.Integer, db.ForeignKey(Client.cid))
     apid = db.Column(db.Integer, db.ForeignKey(Appointment.apid))
+    
+    def __init__(self, cid, apid):
+        self.cid = cid
+        self.apid = apid
+    
 
 class Stylist(db.Model):
     __tablename__ = 'stylist'
@@ -114,6 +119,10 @@ def complete():
 
         appointment_data = Appointment(date, time, service)
         db.session.add(appointment_data)
+        db.session.commit()
+
+        schedules_data = Schedules(Client.query.count(), Appointment.query.count())
+        db.session.add(schedules_data)
         db.session.commit()
 
         if (int(request.form['stylist']) == 201):
