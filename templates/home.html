@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="../static/style.css" />
+        <title>Schedule a hair appointment</title>
+    </head>
+    <body>
+        <div class="container">
+            <img src="../static/hair.png" alt ="Logo" class="center"/>
+            <h1>Schedule appointment</h1>
+            <form action="/complete" method="POST">
+                <div class="form-group">
+                    <h3>Client Name</h3>
+                    <input
+                        type="text"
+                        name="client"
+                        placeholder="Type your name here"
+                    />
+                </div>
+                <div class="form-group">
+                    <h3>Client Phone Number</h3>
+                    <input
+                        type="text"
+                        name="phone_number"
+                        placeholder="Type your number here"
+                    />
+                </div>
+                <div class="form-group">
+                    <h3>Client Payment Method</h3>
+                    <select name="payment_method">
+                        <option value="">Select Payment</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Debit">Debit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                     <h3>Date</h3>
+                    <input
+                        type="date"
+                        name="date"
+                        placeholder="dd-mm-yyyy" value = ""
+                    />
+                    </div>
+                <div class="form-group">
+                        <h3>Time</h3>
+                        <input
+                            type="time"
+                            id="sh"
+                            name="time"
+                            step="1800"
+                            min="07:00" max="18:00" required <small> Salon hours are 7am to 6pm in increments of 30min</small>
+                    </div>
+                <div class="form-group">
+                        <h3>Service</h3>
+                        <select name="service" id = "check">
+                            <option value="">Select Service</option>
+                            <optgroup label="Haircut">
+                                <option value="401">Short (25min, $30)</option>
+                                <option value="402">Trim (20min, $20)</option>
+                                <option value="403">Buzzcut (30min, $20)</option>
+                                <option value="404">Mohawk (30min, $25) </option>
+                                <option value="405">Fade (30min, $30)</option>
+                            </optgroup>
+                            <optgroup label="Coloring Session">
+                                <option value="501">Bleach, toner (2hr, $100) </option>
+                                <option value="502">Bleach, toner, dye (2hr, $120)</option>
+                                <option value="503">Bleach, toner, multiple dyes (3hr, $150)</option>
+                                <option value="504">Bleach, toner, multiple dyes, layer application (2hr, $200)</option>
+                                <option value="505">Bleach, toner, dye, shampoo (2hr, $110)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h3 class=>Select Stylist</h3>
+                        <select name="stylist">
+                            <option value="">Stylist</option>
+                            <optgroup label="Haircut Stylists">
+                                <option value="201">Clowney Pennywise</option>
+                                <option value="202">Edward S. Hands</option>
+                                <option value="203">Stylist Joe</option>
+                            </optgroup>
+                            <optgroup label="Coloring Stylists">
+                                <option value="301">John Bows</option>
+                                <option value="302">Miranda Cosgrove</option>
+                                <option value="303">Missy Andrews</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                <input type="submit" value="Next" class="btn" />
+            </form>
+        </div>
+    </body>
+</html>
