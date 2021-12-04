@@ -36,6 +36,7 @@ class Appointment(db.Model):
 
 class Schedules(db.Model):
     __tablename__ = 'schedules'
+    id = db.Column(db.Integer, primary_key=True)
     cid = db.Column(db.Integer, db.ForeignKey(Client.cid))
     apid = db.Column(db.Integer, db.ForeignKey(Appointment.apid))
 
@@ -47,6 +48,7 @@ class Stylist(db.Model):
 
 class Scheduled(db.Model):
     __tablename__ = 'scheduled'
+    id = db.Column(db.Integer, primary_key=True)
     sid = db.Column(db.Integer, db.ForeignKey(Stylist.sid))
     apid = db.Column(db.Integer, db.ForeignKey(Appointment.apid))
 
@@ -57,6 +59,7 @@ class Service(db.Model):
 
 class Offers(db.Model):
     __tablename__ = 'offers'
+    id = db.Column(db.Integer, primary_key=True)
     sid = db.Column(db.Integer, db.ForeignKey(Stylist.sid))
     serid = db.Column(db.Integer, db.ForeignKey(Service.serid))
 
