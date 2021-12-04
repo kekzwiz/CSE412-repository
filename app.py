@@ -128,10 +128,6 @@ def complete():
         db.session.add(appointment_data)
         db.session.commit()
 
-        schedules_data = Schedules(Client.cid, Appointment.apid)
-        db.session.add(schedules_data)
-        db.session.commit()
-
         if (int(request.form['stylist']) == 201):
             stylist = 'Clowney Pennywise'
             sid = 201
