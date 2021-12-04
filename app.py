@@ -71,7 +71,7 @@ class Haircut(db.Model):
 class ColoringSession(db.Model):
     __tablename__ = 'coloringsession'
     serid = db.Column(db.Integer, primary_key=True)
-    materials = db.Column(db.PickleType(mutable=True))
+    materials = db.Column(db.String(200))
 
 @app.route('/')
 def index():
